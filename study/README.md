@@ -9,11 +9,11 @@
 - 创建`Flutter module`
 > 菜单： File > New > New Flutter Project，然后如下填写你的项目信息
 
-![image1]()
+![image1](https://github.com/xintanggithub/studyDemo/blob/main/study/newflutterproject.png?raw=true)
 
 - 下载 `Android Sdk Command Tools`，如下
 
-![image2]()
+![image2](https://github.com/xintanggithub/studyDemo/blob/main/study/downloadtoolssdk.png?raw=true)
 
 - 根目录 `settings.gradle` 修改入下，注意看注释
 ```gradle
