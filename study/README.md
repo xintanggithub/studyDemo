@@ -7,6 +7,9 @@
 ### 如何在原生项目添加flutter的module？
 
 - 创建`Flutter module`
+
+默认大家已经有原生项目了，这里就是讲的新增一个flutter的module
+
 > 菜单： File > New > New Flutter Project，然后如下填写你的项目信息
 
 ![image1](https://github.com/xintanggithub/studyDemo/blob/main/study/newflutterproject.png?raw=true)
