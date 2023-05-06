@@ -6,7 +6,7 @@ pluginManagement {
     }
 }
 dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.PREFER_PROJECT)
+    repositoriesMode.set(RepositoriesMode.PREFER_PROJECT) // 这里要修改为RepositoriesMode.PREFER_PROJECT
     repositories {
         google()
         mavenCentral()
@@ -15,10 +15,14 @@ dependencyResolutionManagement {
 rootProject.name = "study"
 include ':app'
 
+// 这里是新增的 ↓↓↓↓↓↓↓↓ (如果编译器提示Binding需要导包，不要管，报错不影响构建)
 setBinding(new Binding([gradle: this]))
 evaluate(new File(
         settingsDir.parentFile,
         'tson_flutter/.android/include_flutter.groovy'
 ))
+// 上面是新增的 ↑↑↑↑↑↑↑↑
+
+// 下面这个不用管，上面的添加完，构建成功之后会自动生成
 include ':tson_flutter'
 project(':tson_flutter').projectDir = new File('../tson_flutter')
