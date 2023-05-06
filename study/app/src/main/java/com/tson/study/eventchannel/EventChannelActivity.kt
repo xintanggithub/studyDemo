@@ -19,9 +19,11 @@ class EventChannelActivity : FlutterActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // 创建渠道
         EventChannel(flutterEngine?.dartExecutor?.binaryMessenger, EVENT_CHANNEL_1)
             .setStreamHandler(object : StreamHandler(), EventChannel.StreamHandler {
                 override fun onListen(arguments: Any?, events: EventChannel.EventSink?) {
+                    // 给EventSink赋值
                     this@EventChannelActivity.events = events
                 }
 
@@ -29,6 +31,7 @@ class EventChannelActivity : FlutterActivity() {
                     events = null
                 }
             })
+        // 模拟消息发送
         delaySendMessage()
     }
 
@@ -43,7 +46,10 @@ class EventChannelActivity : FlutterActivity() {
             .delay(3, TimeUnit.SECONDS)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .mySubscribe { events?.success("我通过EventChannel给Flutter发送了一条消息$it") }
+            .mySubscribe {
+                // 发送消息给Flutter
+                events?.success("我通过EventChannel给Flutter发送了一条消息$it")
+            }
             .also { cd.add(it) }
     }
 

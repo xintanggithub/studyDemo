@@ -10,8 +10,6 @@ import io.flutter.plugin.common.StringCodec
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.disposables.Disposable
-import io.reactivex.functions.Consumer
 import io.reactivex.schedulers.Schedulers
 import java.util.concurrent.TimeUnit
 
@@ -37,7 +35,7 @@ class BasicMessageChannelActivity : FlutterActivity() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .mySubscribe {
-                // 定时发送消息
+                // 定时发送消息给Flutter
                 basicMessageChannel.send("rxjava定时消息：$it->${System.currentTimeMillis()}") { s ->
                     // 打印Flutter回复的消息
                     println("test11 原生发送的消息Flutter收到了，并回复：$s")
